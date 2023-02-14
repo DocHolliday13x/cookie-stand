@@ -52,15 +52,30 @@ let seattle = {
   }
 };
 
-// const tokyo = {
-//   name: 'Tokyo',
-//   minCust: 3,
-//   maxCust: 24,
-//   avgCookiesPurchased: 1.2,
-//   cookiesPurchased: []
-// };
+let tokyo = {
+  name: 'Tokyo',
+  minCust: 3,
+  maxCust: 24,
+  avgCookiesPurchased: 1.2,
+  cookiesPurchased: [],
+  dailyTotal: 0,
+  numOfCust: function () {
+    return Math.floor(Math.random() * (this.maxCust - this.minCust + 1) + this.minCust);
+  },
+  cookieNum: function () {
+    for (let i = 0; i < hoursOfOperation.length; i++) {
+      let cookieCount = Math.floor(this.numOfCust() * this.avgCookiesPurchased);
+      this.cookiesPurchased.push(cookieCount);
+      this.dailyTotal = this.dailyTotal + cookieCount;
+    }
+  },
+  render: function () {
+    
+  }
+};
 
-// const dubai = {
+
+// let dubai = {
 //   name: 'Dubai',
 //   minCust: 11,
 //   maxCust: 38,
@@ -68,7 +83,7 @@ let seattle = {
 //   cookiesPurchased: []
 // };
 
-// const paris = {
+// let paris = {
 //   name: 'Paris',
 //   minCust: 20,
 //   maxCust: 38,
@@ -76,7 +91,7 @@ let seattle = {
 //   cookiesPurchased: []
 // };
 
-// const lima = {
+// let lima = {
 //   name: 'Lima',
 //   minCust: 2,
 //   maxCust: 16,
@@ -88,3 +103,6 @@ let seattle = {
 seattle.cookieNum();
 seattle.render();
 console.log(seattle);
+tokyo.cookieNum();
+tokyo.render();
+console.log(tokyo);
