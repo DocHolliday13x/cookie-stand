@@ -53,7 +53,7 @@ let seattle = {
 
     for(let i = 0; i < this.cookiesPurchased.length; i++){
       let liElem = document.createElement('li');
-      liElem.textContent = `${hoursOfOperation[i]}: ${this.cookiesPurchased[i]} cookies`; 
+      liElem.textContent = `${hoursOfOperation[i]}: ${this.cookiesPurchased[i]} cookies`;
       ulElem.appendChild(liElem);
     }
 
@@ -93,7 +93,7 @@ let tokyo = {
 
     for(let i = 0; i < this.cookiesPurchased.length; i++){
       let liElem = document.createElement('li');
-      liElem.textContent = `${hoursOfOperation[i]}: ${this.cookiesPurchased[i]} cookies`; 
+      liElem.textContent = `${hoursOfOperation[i]}: ${this.cookiesPurchased[i]} cookies`;
       ulElem.appendChild(liElem);
     }
 
@@ -132,7 +132,7 @@ let dubai = {
 
     for(let i = 0; i < this.cookiesPurchased.length; i++){
       let liElem = document.createElement('li');
-      liElem.textContent = `${hoursOfOperation[i]}: ${this.cookiesPurchased[i]} cookies`; 
+      liElem.textContent = `${hoursOfOperation[i]}: ${this.cookiesPurchased[i]} cookies`;
       ulElem.appendChild(liElem);
     }
 
@@ -171,7 +171,7 @@ let paris = {
 
     for(let i = 0; i < this.cookiesPurchased.length; i++){
       let liElem = document.createElement('li');
-      liElem.textContent = `${hoursOfOperation[i]}: ${this.cookiesPurchased[i]} cookies`; 
+      liElem.textContent = `${hoursOfOperation[i]}: ${this.cookiesPurchased[i]} cookies`;
       ulElem.appendChild(liElem);
     }
 
@@ -209,7 +209,7 @@ let lima = {
 
     for(let i = 0; i < this.cookiesPurchased.length; i++){
       let liElem = document.createElement('li');
-      liElem.textContent = `${hoursOfOperation[i]}: ${this.cookiesPurchased[i]} cookies`; 
+      liElem.textContent = `${hoursOfOperation[i]}: ${this.cookiesPurchased[i]} cookies`;
       ulElem.appendChild(liElem);
     }
 
@@ -231,13 +231,13 @@ tokyo.render();
 console.log(tokyo);
 
 dubai.numOfCookies();
-dubai.render(); 
+dubai.render();
 console.log(dubai);
 
 paris.numOfCookies();
-paris.render(); 
+paris.render();
 console.log(paris);
 
-lima.numOfCookies(); 
-lima.render(); 
+lima.numOfCookies();
+lima.render();
 console.log(lima);
