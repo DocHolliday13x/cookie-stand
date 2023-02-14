@@ -8,13 +8,13 @@
 // ********** GLOBALS **********
 let hoursOfOperation = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm'];
 
-function salmonLogo(){
+let salesSection = document.getElementById('sales-section');
+function salmonLogo() {
   let imgElem = document.createElement('img');
+  console.log(imgElem);
   imgElem.src = 'img/patsSalmonLogo.png';
   salesSection.appendChild(imgElem);
 }
-
-let salesSection = document.getElementById('sales-section');
 
 // ********** HELPER FUNCTIONS/UTILITIES **********
 
@@ -27,20 +27,19 @@ let seattle = {
   avgCookiesPurchased: 6.3,
   cookiesPurchased: [],
   dailyTotal: 0,
-  numCust: function(){
+  numCust: function () {
     return Math.floor(Math.random() * (this.maxCust - this.minCust + 1) + this.minCust); // generates a customer number between min and max values
   },
-  numOfCookies: function(){
-    for(let i = 0; i < hoursOfOperation.length; i++){
+  numOfCookies: function () {
+    for (let i = 0; i < hoursOfOperation.length; i++) {
       let cookieCount = Math.floor(this.numCust() * this.avgCookiesPurchased);
       this.cookiesPurchased.push(cookieCount); // pushes cookieCount value into cookiesPurchased array for cookies sold per hour
       this.dailyTotal += cookieCount; // generates daily total value by adding the cookieCount
     }
   },
   // here we have to use DOM manipulation to make the web page from scratch, set variables and create elements, add content, then append to
-
   // elementToBeTheParent.appendChild(elementToBecomeChild);
-  render: function(){
+  render: function () {
     let articleElem = document.createElement('article');
     salesSection.appendChild(articleElem);
 
@@ -51,9 +50,9 @@ let seattle = {
     let ulElem = document.createElement('ul');
     articleElem.appendChild(ulElem);
 
-    for(let i = 0; i < this.cookiesPurchased.length; i++){
+    for (let i = 0; i < this.cookiesPurchased.length; i++) {
       let liElem = document.createElement('li');
-      liElem.textContent = `${hoursOfOperation[i]}: ${this.cookiesPurchased[i]} cookies`; 
+      liElem.textContent = `${hoursOfOperation[i]}: ${this.cookiesPurchased[i]} cookies`;
       ulElem.appendChild(liElem);
     }
 
@@ -70,17 +69,17 @@ let tokyo = {
   avgCookiesPurchased: 1.2,
   cookiesPurchased: [],
   dailyTotal: 0,
-  numCust: function(){
+  numCust: function () {
     return Math.floor(Math.random() * (this.maxCust - this.minCust + 1) + this.minCust);
   },
-  numOfCookies: function(){
-    for (let i = 0; i < hoursOfOperation.length; i++){
+  numOfCookies: function () {
+    for (let i = 0; i < hoursOfOperation.length; i++) {
       let cookieCount = Math.floor(this.numCust() * this.avgCookiesPurchased);
       this.cookiesPurchased.push(cookieCount);
       this.dailyTotal += cookieCount;
     }
   },
-  render: function(){
+  render: function () {
     let articleElem = document.createElement('article');
     salesSection.appendChild(articleElem);
 
@@ -91,9 +90,9 @@ let tokyo = {
     let ulElem = document.createElement('ul');
     articleElem.appendChild(ulElem);
 
-    for(let i = 0; i < this.cookiesPurchased.length; i++){
+    for (let i = 0; i < this.cookiesPurchased.length; i++) {
       let liElem = document.createElement('li');
-      liElem.textContent = `${hoursOfOperation[i]}: ${this.cookiesPurchased[i]} cookies`; 
+      liElem.textContent = `${hoursOfOperation[i]}: ${this.cookiesPurchased[i]} cookies`;
       ulElem.appendChild(liElem);
     }
 
@@ -111,15 +110,15 @@ let dubai = {
   avgCookiesPurchased: 3.7,
   cookiesPurchased: [],
   dailyTotal: 0,
-  numCust: function(){
+  numCust: function () {
     return Math.floor(Math.random() * (this.maxCust - this.minCust + 1) + this.minCust);
   },
-  numOfCookies: function(){
+  numOfCookies: function () {
     let cookieCount = Math.floor(this.numCust() * this.avgCookiesPurchased);
     this.cookiesPurchased.push(cookieCount);
     this.dailyTotal += cookieCount;
   },
-  render: function(){
+  render: function () {
     let articleElem = document.createElement('article');
     salesSection.appendChild(articleElem);
 
@@ -130,9 +129,9 @@ let dubai = {
     let ulElem = document.createElement('ul');
     articleElem.appendChild(ulElem);
 
-    for(let i = 0; i < this.cookiesPurchased.length; i++){
+    for (let i = 0; i < this.cookiesPurchased.length; i++) {
       let liElem = document.createElement('li');
-      liElem.textContent = `${hoursOfOperation[i]}: ${this.cookiesPurchased[i]} cookies`; 
+      liElem.textContent = `${hoursOfOperation[i]}: ${this.cookiesPurchased[i]} cookies`;
       ulElem.appendChild(liElem);
     }
 
@@ -150,15 +149,15 @@ let paris = {
   avgCookiesPurchased: 2.3,
   cookiesPurchased: [],
   dailyTotal: 0,
-  numCust: function(){
+  numCust: function () {
     return Math.floor(Math.random() * (this.maxCust - this.minCust + 1) + this.minCust);
   },
-  numOfCookies: function(){
+  numOfCookies: function () {
     let cookieCount = Math.floor(this.numCust() * this.avgCookiesPurchased);
     this.cookiesPurchased.push(cookieCount);
     this.dailyTotal += cookieCount;
   },
-  render: function(){
+  render: function () {
     let articleElem = document.createElement('article');
     salesSection.appendChild(articleElem);
 
@@ -169,9 +168,9 @@ let paris = {
     let ulElem = document.createElement('ul');
     articleElem.appendChild(ulElem);
 
-    for(let i = 0; i < this.cookiesPurchased.length; i++){
+    for (let i = 0; i < this.cookiesPurchased.length; i++) {
       let liElem = document.createElement('li');
-      liElem.textContent = `${hoursOfOperation[i]}: ${this.cookiesPurchased[i]} cookies`; 
+      liElem.textContent = `${hoursOfOperation[i]}: ${this.cookiesPurchased[i]} cookies`;
       ulElem.appendChild(liElem);
     }
 
@@ -188,15 +187,15 @@ let lima = {
   avgCookiesPurchased: 4.6,
   cookiesPurchased: [],
   dailyTotal: 0,
-  numCust: function(){
+  numCust: function () {
     return Math.floor(Math.random() * (this.maxCust - this.minCust + 1) + this.minCust);
   },
-  numOfCookies: function(){
+  numOfCookies: function () {
     let cookieCount = Math.floor(this.numCust() * this.avgCookiesPurchased);
     this.cookiesPurchased.push(cookieCount);
     this.dailyTotal += cookieCount;
   },
-  render: function(){
+  render: function () {
     let articleElem = document.createElement('article');
     salesSection.appendChild(articleElem);
 
@@ -207,9 +206,9 @@ let lima = {
     let ulElem = document.createElement('ul');
     articleElem.appendChild(ulElem);
 
-    for(let i = 0; i < this.cookiesPurchased.length; i++){
+    for (let i = 0; i < this.cookiesPurchased.length; i++) {
       let liElem = document.createElement('li');
-      liElem.textContent = `${hoursOfOperation[i]}: ${this.cookiesPurchased[i]} cookies`; 
+      liElem.textContent = `${hoursOfOperation[i]}: ${this.cookiesPurchased[i]} cookies`;
       ulElem.appendChild(liElem);
     }
 
@@ -231,13 +230,13 @@ tokyo.render();
 console.log(tokyo);
 
 dubai.numOfCookies();
-dubai.render(); 
+dubai.render();
 console.log(dubai);
 
 paris.numOfCookies();
-paris.render(); 
+paris.render();
 console.log(paris);
 
-lima.numOfCookies(); 
-lima.render(); 
+lima.numOfCookies();
+lima.render();
 console.log(lima);
