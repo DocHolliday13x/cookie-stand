@@ -114,9 +114,11 @@ let dubai = {
     return Math.floor(Math.random() * (this.maxCust - this.minCust + 1) + this.minCust);
   },
   numOfCookies: function () {
-    let cookieCount = Math.floor(this.numCust() * this.avgCookiesPurchased);
-    this.cookiesPurchased.push(cookieCount);
-    this.dailyTotal += cookieCount;
+    for (let i = 0; i < hoursOfOperation.length; i++) {
+      let cookieCount = Math.floor(this.numCust() * this.avgCookiesPurchased);
+      this.cookiesPurchased.push(cookieCount);
+      this.dailyTotal += cookieCount;
+    }
   },
   render: function () {
     let articleElem = document.createElement('article');
@@ -153,9 +155,11 @@ let paris = {
     return Math.floor(Math.random() * (this.maxCust - this.minCust + 1) + this.minCust);
   },
   numOfCookies: function () {
-    let cookieCount = Math.floor(this.numCust() * this.avgCookiesPurchased);
-    this.cookiesPurchased.push(cookieCount);
-    this.dailyTotal += cookieCount;
+    for (let i = 0; i < hoursOfOperation.length; i++) {
+      let cookieCount = Math.floor(this.numCust() * this.avgCookiesPurchased);
+      this.cookiesPurchased.push(cookieCount);
+      this.dailyTotal += cookieCount;
+    }
   },
   render: function () {
     let articleElem = document.createElement('article');
@@ -191,9 +195,11 @@ let lima = {
     return Math.floor(Math.random() * (this.maxCust - this.minCust + 1) + this.minCust);
   },
   numOfCookies: function () {
-    let cookieCount = Math.floor(this.numCust() * this.avgCookiesPurchased);
-    this.cookiesPurchased.push(cookieCount);
-    this.dailyTotal += cookieCount;
+    for (let i = 0; i < hoursOfOperation.length; i++) {
+      let cookieCount = Math.floor(this.numCust() * this.avgCookiesPurchased);
+      this.cookiesPurchased.push(cookieCount);
+      this.dailyTotal += cookieCount;
+    }
   },
   render: function () {
     let articleElem = document.createElement('article');
