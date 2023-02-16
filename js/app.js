@@ -129,14 +129,18 @@ StoreGenerator.prototype.render = function () {
 // ********** FORM HANDLING **********
 function handleSubmit(event) {
   event.preventDefault();
-  let storeLocation = event.target.storeLocation.value;
-  let minCap = event.target.minCap.value;
-  let maxCap = event.target.maxCap.value;
-  let custPurchased = event.target.custPurchased.value;
+  let storeLoc = event.target.storeLoc.value;
+  console.log(storeLoc);
+  let minCap = +event.target.minCap.value;
+  console.log(minCap);
+  let maxCap = +event.target.maxCap.value;
+  console.log(maxCap);
+  let custAvgPurchase = +event.target.custAvgPurchase.value;
+  console.log(custAvgPurchase);
 
   // TODO: create a new store with form input values
-  console.log(storeLocation, minCap, maxCap, custPurchased);
-  let newStore = new StoreGenerator(storeLocation, minCap, maxCap, custPurchased);
+  console.log(storeLoc, minCap, maxCap, custAvgPurchase);
+  let newStore = new StoreGenerator(storeLoc, minCap, maxCap, custAvgPurchase);
   // TODO: Temporarily remove footer from table
   document.querySelector('tfoot').remove();
   console.log(table);
