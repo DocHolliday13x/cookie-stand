@@ -21,7 +21,67 @@ header {
   border-radius: 5%;
 }
 
+h1 {
+  text-size: larger;
+}
 
+header li {
+  list-style: none;
+  padding: 10px;
+}
+
+header a {
+  color: #fff;
+  text-decoration: none;
+  justify-content: space-evenly;
+}
+
+header ul {
+  display: flex;
+  justify-content: space-between;
+}
+
+header nav {
+  display: flex;
+  margin-top: -15px;
+}
+
+#logo {
+  height: 200px;
+  width: 400px;
+  display: flex;
+  justify-content: left;
+}
+
+a {
+  font-size: larger;
+}
+
+a:link{
+  color: white;
+  text-decoration: none;
+}
+
+a:visited {
+  color: rgb(248, 2, 125);
+}
+
+a:hover {
+  color: rgb(2, 140, 219);
+}
+
+
+a:active {
+  color: goldenrod;
+}
+
+button {
+  transition: 350ms;
+}
+
+button:hover {
+  background-color: rgb(2, 140, 219);
+}
 
 footer {
   background-color: #797979;
