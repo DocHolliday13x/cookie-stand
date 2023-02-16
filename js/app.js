@@ -6,7 +6,7 @@
 // * Average Number of Cookies Sold
 
 // ********** GLOBALS **********
-console.log('hello world');
+// console.log('hello world'); <-- proof of life
 let hoursOfOperation = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm'];
 
 let salesSection = document.getElementById('sales-section');
@@ -14,7 +14,11 @@ let salesSection = document.getElementById('sales-section');
 let table = document.createElement('table');
 salesSection.appendChild(table);
 
+
+
 let storeLocation = []; // stores all location objects
+
+//let globalStoreList = []; // stores all store location objects
 
 // ********** HELPER FUNCTIONS/UTILITIES **********
 function salmonLogo() {
@@ -24,7 +28,7 @@ function salmonLogo() {
   salesSection.appendChild(imgElem);
 }
 
-function header(){
+function header() {
   let row1 = document.createElement('tr'); // empty row being attached to table
   table.appendChild(row1);
 
@@ -37,9 +41,42 @@ function header(){
     row1.appendChild(td1Elem);
   }
   let dailyTotal = document.createElement('td');
-  dailyTotal.textContent = 'daily total';
+  dailyTotal.textContent = 'Daily Total';
   row1.appendChild(dailyTotal);
 }
+
+// TODO: create a function to create hourly total and store values. It's going to require two for loops. One loop iterates through the hours of operation array, and the other loop iterates through the global store list.
+
+function footer() {
+  let tfoot = document.createElement('tfoot');
+  table.appendChild(tfoot);
+
+  let footerRow = document.createElement('tr');
+  tfoot.appendChild(footerRow);
+
+  let footerCell = document.createElement('td');
+  footerCell.textContent = 'Hourly Totals';
+  footerRow.appendChild(footerCell);
+
+  let grandTotal = 0;
+  for (let i = 0; i < hoursOfOperation.length; i++) {
+    let hourlyTotal = 0;
+    for (let j = 0; j < storeLocation.length; j++) {
+      hourlyTotal += storeLocation[j].cookiesPurchased[i];
+      grandTotal += storeLocation[j].cookiesPurchased[i];
+      console.log(hourlyTotal);
+    }
+    let totalElem = document.createElement('td');
+    totalElem.textContent = hourlyTotal;
+    footerRow.appendChild(totalElem);
+  }
+  let grandTotalCell = document.createElement('td');
+  grandTotalCell.textContent = grandTotal;
+  footerRow.appendChild(grandTotalCell);
+}
+
+
+
 
 // ********** CONSTRUCTOR FUNCTION **********
 function StoreGenerator(name, minCust, maxCust, avgCookiesPurchased) {
@@ -88,6 +125,7 @@ salmonLogo();
 
 header();
 
+
 let seattle = new StoreGenerator('Seattle', 23, 65, 6.3);
 console.log(seattle);
 
@@ -106,8 +144,8 @@ console.log(lima);
 storeLocation.push(seattle, tokyo, dubai, paris, lima);
 console.log(storeLocation);
 
-function renderAllLocations(){
-  for(let i = 0; i < storeLocation.length; i++){
+function renderAllLocations() {
+  for (let i = 0; i < storeLocation.length; i++) {
     storeLocation[i].numCust();
     storeLocation[i].numOfCookies();
     storeLocation[i].render();
@@ -115,6 +153,10 @@ function renderAllLocations(){
 }
 
 renderAllLocations();
+
+footer();
+
+
 
 // ********** OBJECT LITERALS **********
 // let seattle = {
