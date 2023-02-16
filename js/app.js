@@ -14,17 +14,14 @@ let salesSection = document.getElementById('sales-section');
 let table = document.createElement('table');
 salesSection.appendChild(table);
 
-
-
 let storeLocation = []; // stores all location objects
 
-//let globalStoreList = []; // stores all store location objects
 
 // ********** HELPER FUNCTIONS/UTILITIES **********
 function salmonLogo() {
   let imgElem = document.createElement('img');
   console.log(imgElem);
-  imgElem.src = 'img/patsSalmonLogo.png';
+  imgElem.src = 'img/davittTrout.jpg';
   salesSection.appendChild(imgElem);
 }
 

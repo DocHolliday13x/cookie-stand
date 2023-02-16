@@ -16,6 +16,10 @@ header {
   border-radius: 5%;
 }
 
+h1 {
+  
+}
+
 header li {
   list-style: none;
   padding: 10px;
@@ -40,6 +44,8 @@ header nav {
 #logo {
   height: 200px;
   width: 400px;
+  display: flex;
+  justify-content: left;
 }
 
 #hero {
@@ -54,6 +60,28 @@ header nav {
 main li {
   list-style: none;
   padding: 17px;
+}
+
+a {
+  font-size: larger;
+}
+
+a:link{
+  color: white;
+  text-decoration: none;
+}
+
+a:visited {
+  color: rgb(248, 2, 125);
+}
+
+a:hover {
+  color: rgb(2, 140, 219);
+}
+
+
+a:active {
+  color: goldenrod;
 }
 
 main ul {
@@ -104,7 +132,7 @@ button {
 }
 
 button:hover {
-  background-color: aqua;
+  background-color: rgb(2, 140, 219);
 }
 
 .sidekick {
