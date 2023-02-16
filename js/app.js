@@ -6,7 +6,7 @@
 // * Average Number of Cookies Sold
 
 // ********** GLOBALS **********
-console.log('hello world');
+// console.log('hello world'); <-- proof of life
 let hoursOfOperation = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm'];
 
 let salesSection = document.getElementById('sales-section');
@@ -14,7 +14,11 @@ let salesSection = document.getElementById('sales-section');
 let table = document.createElement('table');
 salesSection.appendChild(table);
 
+
+
 let storeLocation = []; // stores all location objects
+
+//let globalStoreList = []; // stores all store location objects
 
 // ********** HELPER FUNCTIONS/UTILITIES **********
 function salmonLogo() {
@@ -40,6 +44,27 @@ function header(){
   dailyTotal.textContent = 'daily total';
   row1.appendChild(dailyTotal);
 }
+
+// TODO: create a function to create hourly total and store values. It's going to require two for loops. One loop iterates through the hours of operation array, and the other loop iterates through the global store list.
+
+function footer() {
+  let tfoot = document.createElement('tfoot');
+  tfoot.textContent = 'Totals';
+  table.appendChild(tfoot);
+
+  for (let i = 0; i < hoursOfOperation.length; i++) {
+    let hourlyTotal = 0;
+    for(let j = 0; j < storeLocation.length; j++){
+      hourlyTotal += storeLocation[j].cookiesPurchased[i];
+      console.log(hourlyTotal);
+    }
+    let totalElem = document.createElement('td');
+    totalElem.textContent = hourlyTotal;
+    tfoot.appendChild(totalElem);
+  }
+}
+
+
 
 // ********** CONSTRUCTOR FUNCTION **********
 function StoreGenerator(name, minCust, maxCust, avgCookiesPurchased) {
@@ -88,6 +113,7 @@ salmonLogo();
 
 header();
 
+
 let seattle = new StoreGenerator('Seattle', 23, 65, 6.3);
 console.log(seattle);
 
@@ -115,6 +141,10 @@ function renderAllLocations(){
 }
 
 renderAllLocations();
+
+footer();
+
+
 
 // ********** OBJECT LITERALS **********
 // let seattle = {
