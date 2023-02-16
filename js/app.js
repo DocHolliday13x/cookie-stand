@@ -28,7 +28,7 @@ function salmonLogo() {
   salesSection.appendChild(imgElem);
 }
 
-function header(){
+function header() {
   let row1 = document.createElement('tr'); // empty row being attached to table
   table.appendChild(row1);
 
@@ -41,7 +41,7 @@ function header(){
     row1.appendChild(td1Elem);
   }
   let dailyTotal = document.createElement('td');
-  dailyTotal.textContent = 'daily total';
+  dailyTotal.textContent = 'Daily Total';
   row1.appendChild(dailyTotal);
 }
 
@@ -49,20 +49,32 @@ function header(){
 
 function footer() {
   let tfoot = document.createElement('tfoot');
-  tfoot.textContent = 'Totals';
   table.appendChild(tfoot);
 
+  let footerRow = document.createElement('tr');
+  tfoot.appendChild(footerRow);
+
+  let footerCell = document.createElement('td');
+  footerCell.textContent = 'Hourly Totals';
+  footerRow.appendChild(footerCell);
+
+  let grandTotal = 0;
   for (let i = 0; i < hoursOfOperation.length; i++) {
     let hourlyTotal = 0;
-    for(let j = 0; j < storeLocation.length; j++){
+    for (let j = 0; j < storeLocation.length; j++) {
       hourlyTotal += storeLocation[j].cookiesPurchased[i];
+      grandTotal += storeLocation[j].cookiesPurchased[i];
       console.log(hourlyTotal);
     }
     let totalElem = document.createElement('td');
     totalElem.textContent = hourlyTotal;
-    tfoot.appendChild(totalElem);
+    footerRow.appendChild(totalElem);
   }
+  let grandTotalCell = document.createElement('td');
+  grandTotalCell.textContent = grandTotal;
+  footerRow.appendChild(grandTotalCell);
 }
+
 
 
 
@@ -132,8 +144,8 @@ console.log(lima);
 storeLocation.push(seattle, tokyo, dubai, paris, lima);
 console.log(storeLocation);
 
-function renderAllLocations(){
-  for(let i = 0; i < storeLocation.length; i++){
+function renderAllLocations() {
+  for (let i = 0; i < storeLocation.length; i++) {
     storeLocation[i].numCust();
     storeLocation[i].numOfCookies();
     storeLocation[i].render();
