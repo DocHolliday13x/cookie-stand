@@ -12,8 +12,7 @@ let hoursOfOperation = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm
 let salesSection = document.getElementById('sales-section');
 // TODO: grab elmement by id from salse.html
 let salesForm = document.getElementById('salesForm');
-
-
+// creates table element attached to HTML section
 let table = document.createElement('table');
 salesSection.appendChild(table);
 
@@ -21,6 +20,14 @@ let storeLocation = []; // stores all location objects
 
 
 // ********** HELPER FUNCTIONS/UTILITIES **********
+function renderAll() {
+  for (let i = 0; i < storeLocation.length; i++) {
+    storeLocation[i].numCust();
+    storeLocation[i].avgCookies();
+    storeLocation[i].render();
+  }
+}
+
 function salmonLogo() {
   let imgElem = document.createElement('img');
   console.log(imgElem);
@@ -118,6 +125,38 @@ StoreGenerator.prototype.render = function () {
   dailyTotal.textContent = this.dailyTotal;
   row1.appendChild(dailyTotal);
 };
+
+// ********** FORM HANDLING **********
+function handleSubmit(event) {
+  event.preventDefault();
+  let storeLocation = event.target.storeLocation.value;
+  let minCap = event.target.minCap.value;
+  let maxCap = event.target.maxCap.value;
+  let custPurchased = event.target.custPurchased.value;
+
+  // TODO: create a new store with form input values
+  console.log(storeLocation, minCap, maxCap, custPurchased);
+  let newStore = new StoreGenerator(storeLocation, minCap, maxCap, custPurchased);
+  // TODO: Temporarily remove footer from table
+  document.querySelector('tfoot').remove();
+  console.log(table);
+
+  newStore.numCust();
+  newStore.numOfCookies();
+  newStore.render();
+
+  // TODO: bring footer back to table
+  storeLocation.push(newStore);
+  footer();
+  salesForm.reset();
+}
+
+// ********** NEW CONSTRUCTOR EXECUTION **********
+console.log(storeLocation);
+renderAll();
+
+// ********** EVENT LISTENERS **********
+salesForm.addEventListener('submit', handleSubmit);
 
 
 // ********** EXECUTABLE CODE **********
