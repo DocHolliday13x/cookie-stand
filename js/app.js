@@ -8,8 +8,11 @@
 // ********** GLOBALS **********
 // console.log('hello world'); <-- proof of life
 let hoursOfOperation = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm'];
-
+// window to DOM
 let salesSection = document.getElementById('sales-section');
+// TODO: grab elmement by id from salse.html
+let salesForm = document.getElementById('salesForm');
+
 
 let table = document.createElement('table');
 salesSection.appendChild(table);
